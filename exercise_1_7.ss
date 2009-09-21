@@ -12,4 +12,4 @@
   (< (abs (- (square guess) x)) 0.001))
 (define (sq-rt x)
   (sqrt-iter 1.0 x))
-(sq-rt 10000000000000000000000000000000) ;never completes
+(sq-rt 0.0000000000001)
