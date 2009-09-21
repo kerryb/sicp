@@ -10,6 +10,6 @@
   (/ (+ x y) 2))
 (define (good-enough? guess x)
   (< (abs (- (square guess) x)) 0.001))
-(define (sq-rt x)
+(define (sqrt x)
   (sqrt-iter 1.0 x))
-(sq-rt 0.0000000000001)
+(sqrt 25)
