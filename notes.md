@@ -39,3 +39,124 @@ For very large numbers, limited precision could prevent the number ever getting
 "close enough". For example, sqrt 1E20 = 1E10. If we only had 10-digit
 accuracy, we wouldn't have enough precision to represent 10,000,000.001, which
 would keep getting rounded to 10,000,000.
+
+## Lecture 1B
+
+"The key to understanding complicated things is to know what not to look at,
+and what not to compute, and what not to think"
+
+If: predicate/consequent/alternative
+
+"It's important to get names for the parts of things"
+
+Recursive definition of +
+
+Shapes of expanded algorithms in terms of time and space
+
+Iteration and recursion in terms of passing requests between people
+
+## Chapter 1.2.1
+
+Interesting that "linear recursive" and "iterative" solutions are _both_
+recursive. But the latter finishes with a simple call to itself, which
+presumably is where TCO comes in.
+
+Languages having to resort to for, while etc for iteration described as a
+"defect" :-)
+
+### Exercise 1.9
+
+The first process is recursive:
+
+```scheme
+(define (+ a b)
+  (if (= a 0) b (inc (+ (dec a) b))))
+
+(+ 4 5)
+(inc (+ 3 5))
+(inc (inc (+ 2 5)))
+(inc (inc (inc (+ 1 5))))
+(inc (inc (inc (inc (+ 0 5)))))
+(inc (inc (inc (inc 5))))
+(inc (inc (inc 6)))
+(inc (inc 7))
+(inc 8)
+9
+```
+
+The second is iterative:
+
+```scheme
+(define (+ a b)
+  (if (= a 0) b (+ (dec a) (inc b))))
+
+(+ 4 5)
+(+ 3 6)
+(+ 2 7)
+(+ 1 8)
+(+ 0 9)
+9
+```
+
+### Exercise 1.10
+
+```scheme
+(define (A x y)
+  (cond ((= y 0) 0)
+        ((= x 0) (* 2 y))
+        ((= y 1) 2)
+        (else (A (- x 1) (A x (- y 1))))))
+
+(A 1 10)
+(A (- 1 1) (A 1 (- 10 1)))
+(A 0 (A 1 9))
+(A 0 (A (- 1 1) (A 1 (- 9 1))))
+(A 0 (A 0 (A 1 8)))
+(A 0 (A 0 (A 0 (A 1 7))))
+(A 0 (A 0 (A 0 (A 0 (A 1 6))))
+(A 0 (A 0 (A 0 (A 0 (A 0 (A 1 5))))))
+(A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 4)))))))
+(A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 3))))))))
+(A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 2)))))))))
+(A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 1))))))))))
+(A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 2)))))))))
+(A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 4))))))))
+(A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 8)))))))
+(A 0 (A 0 (A 0 (A 0 (A 0 (A 0 16))))))
+(A 0 (A 0 (A 0 (A 0 (A 0 32)))))
+(A 0 (A 0 (A 0 (A 0 64))))
+(A 0 (A 0 (A 0 128)))
+(A 0 (A 0 256))
+(A 0 512)
+1024
+
+(A 2 4)
+(A 1 (A 2 3))
+(A 1 (A 1 (A 2 2)))
+(A 1 (A 1 (A 1 (A 2 1)))
+(A 1 (A 1 (A 1 2))
+(A 1 (A 1 4)
+(A 1 16)
+65536
+
+(A 3 3)
+;Value: 65536
+```
+
+```scheme
+(define (f n) (A 0 n))
+```
+
+2n
+
+```scheme
+(define (g n) (A 1 n))
+```
+
+2^n
+
+```scheme
+(define (h n) (A 2 n))
+```
+
+2 squared n times, if that makes sense.
