@@ -1,3 +1,6 @@
+; Pretty sure this isn't really what they were asking for, particularly as we
+; haven't learnt about lists yet.
+
 (define (pascal-row n)
   (define (next-row row)
     (next-row~ row (list 1)))

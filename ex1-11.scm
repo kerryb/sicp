@@ -1,3 +1,4 @@
+; Recursive implementation
 (define (f n)
   (if (< n 3)
       n
@@ -7,6 +8,7 @@
          (* 3
             (f (- n 3))))))
 
+; Iterative implementation of the same thing
 (define (f2 n)
   (define (f2-iter a b c n)
     (if (= n 0)
