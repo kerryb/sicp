@@ -159,4 +159,4 @@ The second is iterative:
 (define (h n) (A 2 n))
 ```
 
-2 squared n times, if that makes sense.
+If n = 1, 2^n; if n = 2, 2^(2^n); if n = 3, 2^(2^(2^n)). Or something like that.
