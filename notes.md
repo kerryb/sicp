@@ -160,3 +160,8 @@ The second is iterative:
 ```
 
 If n = 1, 2^n; if n = 2, 2^(2^n); if n = 3, 2^(2^(2^n)). Or something like that.
+
+## Lecture 2A
+
+"Whenever you find yourself writing something down more than once, there's
+something wrong and you shouldn't be doing it."
