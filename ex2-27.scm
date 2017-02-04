@@ -1,0 +1,15 @@
+(define (reverse l)
+  (define (_reverse l result)
+    (if (null? l)
+      result
+      (_reverse (cdr l)
+                (cons (car l) result))))
+  (_reverse l ()))
+
+(define (deep-reverse l)
+  (define (_reverse l result)
+    (cond ((null? l) result)
+          ((pair? l) (_reverse (cdr l)
+                               (cons (_reverse (car l) ()) result)))
+          (else l)))
+  (_reverse l ()))
