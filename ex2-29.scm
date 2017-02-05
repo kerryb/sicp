@@ -12,13 +12,26 @@
 (define (branch-structure structure)
   (cadr structure))
 
+(define (branch-weight branch)
+  (if (pair? (branch-structure branch))
+    (total-weight (branch-structure branch))
+    (branch-structure branch)))
+
 (define (total-weight mobile)
-  (define (branch-weight branch)
-    (if (pair? (branch-structure branch))
-      (total-weight (branch-structure branch))
-      (branch-structure branch)))
   (+ (branch-weight (left-branch mobile))
      (branch-weight (right-branch mobile))))
+
+(define (balanced? mobile)
+  (define left (left-branch mobile))
+  (define right (right-branch mobile))
+  (define (balanced-branch? branch)
+    (if (pair? (branch-structure branch))
+      (balanced? (branch-structure branch))
+      t))
+  (= (* (branch-length left)
+        (branch-weight left))
+     (* (branch-length right)
+        (branch-weight right))))
 
 ; Test/demo thing … I should really look into scheme unit testing.
 
@@ -35,3 +48,13 @@
 (newline)
 (display "Total weight: ")
 (display (total-weight m))
+
+(newline)
+(display "Balanced? ")
+(display (balanced? m))
+
+(define l (make-branch 4 3))
+(define m (make-mobile l r))
+(newline)
+(display "Balanced now? ")
+(display (balanced? m))
