@@ -166,7 +166,13 @@ If n = 1, 2^n; if n = 2, 2^(2^n); if n = 3, 2^(2^(2^n)). Or something like that.
 "Whenever you find yourself writing something down more than once, there's
 something wrong and you shouldn't be doing it."
 
+## Chapter 2.2.1
+
+Really starting to miss pattern-matching at this point.
+
 ## Chapter 2.2.2
+
+And now I miss the Elixir |> operator too. I expect I need to define a monad macro or something.
 
 ### Exercise 2.24
 
@@ -212,3 +218,7 @@ something wrong and you shouldn't be doing it."
 (append x y) => (1 2 3 4 5 6)
 (cons x y) => ((1 2 3) 4 5 6)
 (list x y) => ((1 2 3) (1 2 3))
+
+## Exercise 2.38
+
+`op` must be commutative.
