@@ -219,6 +219,11 @@ And now I miss the Elixir |> operator too. I expect I need to define a monad mac
 (cons x y) => ((1 2 3) 4 5 6)
 (list x y) => ((1 2 3) (1 2 3))
 
+# Chapter 2.2.3
+
+"In this book we don’t use many comments; we try to make our programs
+self-documenting by using descriptive names"
+
 ## Exercise 2.38
 
 `op` must be commutative.
