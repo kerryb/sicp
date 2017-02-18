@@ -227,3 +227,9 @@ self-documenting by using descriptive names"
 ## Exercise 2.38
 
 `op` must be commutative.
+
+# Lecture 3A
+
+"Lisp is a lousy language for doing any particular problem. What it's good for
+is figuring out the right language that you want and embedding that in Lisp.
+That's the real power of this approach to design."
