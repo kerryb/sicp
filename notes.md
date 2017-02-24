@@ -252,3 +252,7 @@ That's the real power of this approach to design."
     ; => false
     (memq 'red '(red shoes blue socks))
     ; => (red shoes blue socks)
+
+## Exercise 2.55
+
+(car ''abracadabra) expands to (car (quote (quote abracadabra))), which is quote.
