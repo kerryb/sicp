@@ -261,3 +261,5 @@ That's the real power of this approach to design."
 
 When he's simplifying `make-sum`, why doesn't the first case of the `cond`
 override the two more specific ones below?
+
+(Looks like it's fixed in the book)
