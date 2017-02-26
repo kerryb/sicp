@@ -255,4 +255,9 @@ That's the real power of this approach to design."
 
 ## Exercise 2.55
 
-(car ''abracadabra) expands to (car (quote (quote abracadabra))), which is quote.
+`(car ''abracadabra)` expands to `(car (quote (quote abracadabra)))`, which is `quote`.
+
+# Lecture 3B
+
+When he's simplifying `make-sum`, why doesn't the first case of the `cond`
+override the two more specific ones below?
